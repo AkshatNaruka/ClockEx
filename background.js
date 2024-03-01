@@ -1,3 +1,3 @@
-chrome.browserAction.onClicked.addListener(function() {
-    chrome.tabs.create({url: 'clock.html'});
-  });
+chrome.action.onClicked.addListener((tab) => {
+  chrome.tabs.create({url: 'clock.html'});
+});
