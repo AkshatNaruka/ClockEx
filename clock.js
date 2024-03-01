@@ -59,3 +59,17 @@ document.getElementById('taskInput').addEventListener('keydown', function(e) {
     this.value = '';
   }
 });
+
+
+
+function fetchQuote() {
+  fetch('https://api.quotable.io/quotes/random?tags=Wisdom') 
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);  // Log the data to the console
+      document.getElementById('quote').textContent = data[0].content + " - " + data[0].author;
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+fetchQuote();
