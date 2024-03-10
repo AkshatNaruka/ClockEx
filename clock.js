@@ -60,6 +60,40 @@ document.getElementById('taskInput').addEventListener('keydown', function(e) {
   }
 });
 
+function showLocalQuote() {
+  const localQuotes = [
+    {
+      content: "The only way to do great work is to love what you do.",
+      author: "Steve Jobs"
+    },
+    {
+      content: "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful.",
+      author: "Albert Schweitzer"
+    },
+    {
+      content: "Believe you can and you're halfway there.",
+      author: "Theodore Roosevelt"
+    },
+    {
+      content: "The future belongs to those who believe in the beauty of their dreams.",
+      author: "Eleanor Roosevelt"
+    },
+    {
+      content: "In the middle of every difficulty lies opportunity.",
+      author: "Albert Einstein"
+    }
+  ];
+
+  const randomIndex = Math.floor(Math.random() * localQuotes.length);
+  const quote = localQuotes[randomIndex];
+  document.getElementById('quote').textContent = quote.content + " - " + quote.author;
+}
+
+if (navigator.onLine) {
+  fetchQuote();
+} else {
+  showLocalQuote();
+}
 
 
 function fetchQuote() {
