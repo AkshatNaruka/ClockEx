@@ -48,18 +48,46 @@ document.getElementById('pausePomodoro').addEventListener('click', function() {
   timerInterval = null;
 });
 
+
+// Load tasks from local storage
+function loadTasks() {
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  tasks.forEach(task => {
+    const taskElement = createTaskElement(task);
+    document.getElementById('taskList').appendChild(taskElement);
+  });
+}
+
+// Save tasks to local storage
+function saveTasks() {
+  const tasks = Array.from(document.querySelectorAll('#taskList li')).map(taskElement => taskElement.textContent);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// Create a task element
+function createTaskElement(task) {
+  const taskElement = document.createElement('li');
+  taskElement.textContent = task;
+  taskElement.addEventListener('click', function() {
+    this.parentNode.removeChild(this);
+    saveTasks();
+  });
+  return taskElement;
+}
+
+// Add task when Enter key is pressed
 document.getElementById('taskInput').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') {
-    const task = document.createElement('li');
-    task.textContent = this.value;
-    task.addEventListener('click', function() {
-      this.parentNode.removeChild(this);
-    });
-    document.getElementById('taskList').appendChild(task);
+    const task = this.value;
+    const taskElement = createTaskElement(task);
+    document.getElementById('taskList').appendChild(taskElement);
     this.value = '';
+    saveTasks();
   }
 });
 
+// Load tasks on page load
+loadTasks();
 function showLocalQuote() {
   const localQuotes = [
     {
