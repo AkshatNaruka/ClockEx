@@ -135,3 +135,24 @@ function fetchQuote() {
 }
 
 fetchQuote();
+
+// Play music when the page loads
+window.addEventListener('load', function() {
+  const audioPlayer = document.getElementById('audioPlayer');
+  audioPlayer.src = 'url here'; // Provide the direct link to your music file here
+  audioPlayer.play();
+});
+
+// Play/pause the music
+const playPauseButton = document.getElementById('disc');
+const audioPlayer = document.getElementById('audioPlayer');
+
+playPauseButton.addEventListener('click', function() {
+  if (audioPlayer.paused) {
+    audioPlayer.play();
+  } else {
+    audioPlayer.pause();
+  }
+});
+
+

@@ -108,3 +108,47 @@
 #taskList li:before {
     content: '\2610   ';
 }
+
+#musicPlayer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #f2f2f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#audioPlayer {
+  display: none;
+}
+
+#playerControls {
+  position: relative;
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#arm {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 60%;
+  background-color: #000;
+}
+
+#disc {
+  width: 60%;
+  height: 60%;
+  background-color: #000;
+  border-radius: 50%;
+}
