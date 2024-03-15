@@ -6,12 +6,14 @@
 </head>
 <body>
   <div id="musicPlayer">
-    <audio id="audioPlayer" src="path/to/your/music.mp3"></audio>
-    <div id="playerControls">
-      <div id="arm"></div>
-      <div id="disc"></div>
-    </div>
+    <audio id="audioPlayer" autoplay muted>
+      <source src="./music/m1.mp3" type="audio/mp3">
+      <source src="./music/m2.mp3" type="audio/mp3">
+      <source src="./music/m3.mp3" type="audio/mp3">
+    </audio>
+    <button id="musicButton"><i class="fas fa-volume-mute"></i></button>
   </div>
+  
   <div id="clock"></div>
   <div id="pomodoro">
     <div id="timer">25:00</div>

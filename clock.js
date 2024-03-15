@@ -149,23 +149,40 @@ function fetchQuote() {
 
 fetchQuote();
 
-// Play music when the page loads
-window.addEventListener('load', function() {
-  const audioPlayer = document.getElementById('audioPlayer');
-  audioPlayer.src = 'url here'; // Provide the direct link to your music file here
-  audioPlayer.play();
-});
+const audio = document.getElementById("audioPlayer");
+const muteButton = document.getElementById("musicButton");
 
-// Play/pause the music
-const playPauseButton = document.getElementById('disc');
-const audioPlayer = document.getElementById('audioPlayer');
 
-playPauseButton.addEventListener('click', function() {
-  if (audioPlayer.paused) {
-    audioPlayer.play();
+// Function to toggle mute
+function toggleMute() {
+  audio.muted = !audio.muted;
+  if (audio.muted) {
+    muteButton.innerHTML = '<i class="fas fa-volume-mute"></i>';
   } else {
-    audioPlayer.pause();
+    muteButton.innerHTML = '<i class="fas fa-volume-up"></i>';
   }
-});
+}
 
 
+// Function to set initial volume
+function setInitialVolume() {
+  audio.volume = 0.5; // Set the initial volume level here (0 to 1)
+}
+
+// Function to play a random song from the music folder
+function playRandomSong() {
+  const songIndex = Math.floor(Math.random() * 3) + 1; // Assuming there are 5 songs in the music folder
+
+  const songPath = `/music/m${songIndex}.mp3`; // Adjust the path based on your folder structure
+  audio.src = songPath;
+  audio.play();
+}
+
+// Event listener for mute button
+muteButton.addEventListener("click", toggleMute);
+
+// Call the function to set initial volume when the document is loaded
+document.addEventListener("DOMContentLoaded", setInitialVolume);
+
+// Call the function to play a random song when the document is loaded
+document.addEventListener("DOMContentLoaded", playRandomSong);
