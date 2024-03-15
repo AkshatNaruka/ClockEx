@@ -108,13 +108,3 @@
 #taskList li:before {
     content: '\2610   ';
 }
-
-#musicButton{
-    position: absolute;
-    left: 20px;
-    top: 20px;
-    background: none;
-    border: none;
-    color: inherit;
-    font-size: 26px;
-}
