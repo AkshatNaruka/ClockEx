@@ -1,3 +1,4 @@
+
 function updateClock() {
   const now = new Date();
   const hours = now.getHours();
