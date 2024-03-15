@@ -37,17 +37,30 @@ function updateTimer() {
   }
 }
 
-document.getElementById('startPomodoro').addEventListener('click', function() {
+function togglePlayPause() {
+  const playPauseButton = document.getElementById('startPomodoro');
   if (!timerInterval) {
     timerInterval = setInterval(updateTimer, 1000);
+    playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+  } else {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
   }
-});
+}
 
-document.getElementById('pausePomodoro').addEventListener('click', function() {
-  clearInterval(timerInterval);
-  timerInterval = null;
-});
+  function resetTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+    timeLeft = 25 * 60;
+    isWorking = true;
+    updateTimer();
+    const playPauseButton = document.getElementById('startPomodoro');
+    playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+  }
 
+document.getElementById('startPomodoro').addEventListener('click', togglePlayPause);
+document.getElementById('restartPomo').addEventListener('click',resetTimer);
 
 // Load tasks from local storage
 function loadTasks() {

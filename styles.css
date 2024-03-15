@@ -42,7 +42,7 @@
     font-size: 48px;
 }
 
-#startPomodoro, #pausePomodoro {
+#startPomodoro, #restartPomo {
     display: inline-block;
     background: none;
     border: none;
