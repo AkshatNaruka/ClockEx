@@ -1,10 +1,11 @@
-/* src/App.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/* Base styles */
 body {
   transition: background-color 0.5s ease;
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 body.dark-theme {
@@ -22,6 +23,7 @@ body.dark-theme #taskInput {
   color: #fff;
 }
 
+/* Components positioning and styling */
 #clock {
   font-size: 150px;
   text-align: center;
@@ -29,7 +31,6 @@ body.dark-theme #taskInput {
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Roboto', sans-serif;
 }
 
 #pomodoro {
@@ -111,6 +112,75 @@ body.dark-theme #taskInput {
   content: '\2610   ';
 }
 
+/* Floating Chatbot Styles */
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ffffff00;
+  border: none;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chat-toggle.dark-theme {
+  background-color: #fff;
+  color: #000;
+}
+
+#chat-widget {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  height: 400px; /* Adjusted height */
+  background-color: white;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+#chat-widget.visible {
+  display: flex;
+}
+
+#chat-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#loading {
+  display: none;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #000;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.message {
+  margin-left: 10px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   #clock {
@@ -126,11 +196,13 @@ body.dark-theme #taskInput {
     font-size: 36px;
   }
 
-  #startPomodoro, #restartPomo {
+  #startPomodoro, 
+  #restartPomo {
     font-size: 36px;
   }
 
-  #taskBox {
+  #taskBox, 
+  #deepchat-container {
     height: 40%;
     width: 80%;
     left: 10%;
@@ -141,7 +213,8 @@ body.dark-theme #taskInput {
     display: none; /* Hide quoteBox on devices with a width less than 768px */
   }
 
-  .ads-left, .ads-right {
+  .ads-left, 
+  .ads-right {
     display: none;
   }
 
@@ -167,11 +240,13 @@ body.dark-theme #taskInput {
     font-size: 28px;
   }
 
-  #startPomodoro, #restartPomo {
+  #startPomodoro, 
+  #restartPomo {
     font-size: 28px;
   }
 
-  #taskBox {
+  #taskBox, 
+  #deepchat-container {
     height: 50%;
     width: 90%;
     left: 5%;
@@ -186,3 +261,4 @@ body.dark-theme #taskInput {
     font-size: 18px;
   }
 }
+
