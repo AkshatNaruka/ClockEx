@@ -73,7 +73,7 @@ const App = () => {
         <div id="chat-container">
           <DeepChat
             demo={true}
-            chatStyle={{ borderRadius: '10px', height: '100%' }}
+            chatStyle={{ borderRadius: '10px', height: '100%', width:'100%' }}
             textInput={{ placeholder: { text: 'Write your message...' } }}
             initialMessages={initialMessages}
           />
