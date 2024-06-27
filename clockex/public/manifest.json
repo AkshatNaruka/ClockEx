@@ -37,7 +37,7 @@
       "short_name": "Tasks",
       "description": "Organize and manage your tasks efficiently",
       "url": "/",
-      "icons": [{ "src": "logo192.png", "sizes the model">${ to=bio<|broken_link|> "192x192", "type": "image/png" }]
+      "icons": [{ "src": "logo192.png", "sizes":"192x192", "type": "image/png" }]
     },
     {
       "name": "Motivational Quotes",
