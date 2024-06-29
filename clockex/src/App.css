@@ -215,17 +215,6 @@ body.dark-theme #taskInput {
     display: none; /* Hide quoteBox on devices with a width less than 768px */
   }
 
-  .ads-left, 
-  .ads-right {
-    display: none;
-  }
-
-  .ads-bottom {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    transform: translateX(0);
-  }
 }
 
 @media (max-width: 480px) {
